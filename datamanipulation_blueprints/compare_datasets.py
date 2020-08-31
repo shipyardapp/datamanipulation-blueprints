@@ -86,7 +86,7 @@ def main():
             chunksize=10000)
         print(f'Created {df2_only_name}')
     if len(df_overlap) > 0:
-        overlap_name = f'{os.path.splitext(source_file_name)[0]}overlap.csv'
+        overlap_name = f'{os.path.splitext(source_file_name)[0]}_overlap.csv'
         df_overlap.to_csv(
             overlap_name,
             index=False,
