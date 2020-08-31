@@ -72,20 +72,26 @@ def main():
                                == 'both'].drop(columns=['_merge'])
 
     if len(df1_only) > 0:
+        df1_only_name = f'{os.path.splitext(source_file_name)[0]}_only.csv'
         df1_only.to_csv(
-            f'{os.path.splitext(source_file_name)[0]}_only.csv',
+            df1_only_name,
             index=False,
             chunksize=10000)
+        print(f'Created {df1_only_name}')
     if len(df2_only) > 0:
+        df2_only_name = f'{os.path.splitext(source_file_name2)[0]}_only.csv'
         df2_only.to_csv(
-            f'{os.path.splitext(source_file_name2)[0]}_only.csv',
+            df2_only_name,
             index=False,
             chunksize=10000)
+        print(f'Created {df2_only_name}')
     if len(df_overlap) > 0:
+        overlap_name = f'{os.path.splitext(source_file_name)[0]}overlap.csv'
         df_overlap.to_csv(
-            f'{os.path.splitext(source_file_name)[0]}_overlap.csv',
+            overlap_name,
             index=False,
             chunksize=10000)
+        print(f'Created {overlap_name}')
 
 
 if __name__ == '__main__':
